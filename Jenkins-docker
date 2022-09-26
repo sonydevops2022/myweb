@@ -47,7 +47,7 @@ pipeline{
          }
         stage('Push Docker Image'){
              steps{
-                  withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
+                  withCredentials([string(credentialsId: 'Jenkins-docker', variable: 'DOCKER_HUB_CREDENTIALS')]) {
                       sh "docker login -u alukasony492 -p ${DOCKER_HUB_CREDENTIALS}"
             }
             sh 'docker push alukasony492/spring-boot-mongo'
